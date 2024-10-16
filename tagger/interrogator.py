@@ -614,16 +614,12 @@ class MLDanbooruInterrogator(Interrogator):
         print(f"Loading {self.name} model file from {self.repo_id}")
         cache = getattr(shared.opts, "tagger_hf_cache_dir", Its.hf_cache)
 
-        # model_path = hf_hub_download(
-        #     repo_id=self.repo_id, filename=self.model_path, cache_dir=cache
-        # )
-        # tags_path = hf_hub_download(
-        #     repo_id=self.repo_id, filename=self.tags_path, cache_dir=cache
-        # )
-        model_path = model_file_download(
-            model_id=self.repo_id, file_path=self.model_path
+        model_path = hf_hub_download(
+            repo_id=self.repo_id, filename=self.model_path, cache_dir=cache
         )
-        tags_path = model_file_download(model_id=self.repo_id, file_path=self.tags_path)
+        tags_path = hf_hub_download(
+            repo_id=self.repo_id, filename=self.tags_path, cache_dir=cache
+        )
         return model_path, tags_path
 
     def load(self) -> None:
