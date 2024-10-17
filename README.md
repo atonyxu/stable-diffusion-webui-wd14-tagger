@@ -1,3 +1,8 @@
+WD14 Tagger 国内版 使用ModelScope下载 增加e621反推及其他最新反推模型列表
+
+
+
+
 Tagger for [Automatic1111's WebUI](https://github.com/AUTOMATIC1111/stable-diffusion-webui)
 ---
 Interrogate booru style tags for single or multiple image files using various models, such as DeepDanbooru.
