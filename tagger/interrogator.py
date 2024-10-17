@@ -404,9 +404,14 @@ class WaifuDiffusionInterrogator(Interrogator):
             model_path = model_file_download(
                 model_id=self.repo_id, file_path=self.model_path
             )
-            tags_path = model_file_download(
-                model_id=self.repo_id, file_path=self.tags_path
-            )
+            if self.name == "e621-convnext-tagger":
+                tags_path = os.path.join(
+                    os.path.dirname(os.path.abspath(__file__)), "e621_tags.csv"
+                )
+            else:
+                tags_path = model_file_download(
+                    model_id=self.repo_id, file_path=self.tags_path
+                )
         else:
             model_path = self.local_model
             tags_path = self.local_tags
